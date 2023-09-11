@@ -21,7 +21,7 @@ function bindKeyPressToNewGame() {
         }
         
     });
-    $(document).on("tap",function (event) {
+    $(document).on("touchstart",function (event) {
         if (!isGameInProgress) {
            restartGame();
         }
@@ -42,7 +42,7 @@ function bindClickToButtons() {
             }
         }
     });
-    $(".btn").on("tap",function () {
+    $(".btn").on("touchstart",function () {
         this.click();
     });
 }
