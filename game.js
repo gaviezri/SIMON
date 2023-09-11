@@ -16,6 +16,13 @@ function bindKeyPressToNewGame() {
             showSequence();
         }
     });
+    $(document).tap(function (event) {
+        if (!isGameInProgress) {
+            resetGameParameters();
+            isGameInProgress = true;
+            showSequence();
+        }
+    });
 }
 
 function bindClickToButtons() {
@@ -31,6 +38,9 @@ function bindClickToButtons() {
                 $("#level-title").text("Game Over, Press Any Key to Restart");
             }
         }
+    });
+    $(".btn").tap(function () {
+        this.click();
     });
 }
 
