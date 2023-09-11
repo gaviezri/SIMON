@@ -8,19 +8,22 @@ var level = 1;
 const buttonColors = ["red", "blue", "green", "yellow"];
 var nextPatternIdx = 0;
 
+function restartGame() {
+    resetGameParameters();
+    isGameInProgress = true;
+    showSequence();
+}
+
 function bindKeyPressToNewGame() {
     $(document).keypress(function (event) {
-        if (!isGameInProgress) {
-            resetGameParameters();
-            isGameInProgress = true;
-            showSequence();
+        if(!isGameInProgress){
+            restartGame();
         }
+        
     });
-    $(document).tap(function (event) {
+    $(document).on("tap",function (event) {
         if (!isGameInProgress) {
-            resetGameParameters();
-            isGameInProgress = true;
-            showSequence();
+           restartGame();
         }
     });
 }
@@ -39,7 +42,7 @@ function bindClickToButtons() {
             }
         }
     });
-    $(".btn").tap(function () {
+    $(".btn").on("tap",function () {
         this.click();
     });
 }
